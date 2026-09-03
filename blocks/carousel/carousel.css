@@ -1,5 +1,5 @@
-.carousel.category-carousel{display: flex;overflow-x: auto;gap: 24px;scroll-snap-type: x mandatory;}
-.carousel.product-carousel{display: flex;overflow-x: auto;gap: 24px;scroll-snap-type: x mandatory;}
+/* .carousel.category-carousel{display: flex;overflow-x: auto;gap: 24px;scroll-snap-type: x mandatory;}
+.carousel.product-carousel{display: flex;overflow-x: auto;gap: 24px;scroll-snap-type: x mandatory;} */
 
 .carousel {
   position: relative;
@@ -236,3 +236,6 @@
     transition: none;
   }
 }
+
+
+/*-----------------------------------------------*/
