@@ -1,0 +1,26 @@
+main > .section > .newsletter-wrapper { max-width: unset;background: #ebffdf;}
+main > .section > .newsletter-wrapper .newsletter {display: flex;flex-direction: column;gap: 1.5rem;padding: 1.5rem;}
+
+main > .section > .newsletter-wrapper .newsletter .newsletter-content,
+main > .section > .newsletter-wrapper .newsletter .newsletter-form {
+  width: 100%;
+}
+main > .section > .newsletter-wrapper .newsletter .newsletter-form input{width: 100%; border-radius: 7px; border:1px solid #eee;padding:6px 0 6px 6px; outline: none;}
+main > .section > .newsletter-wrapper .newsletter .newsletter-form input + button{position: absolute; right: 0;top: 6px;background-color: var(--text-color);border-radius: 100%;border:1px soli var(--text-color);color: var(---text-white);}
+main > .section > .newsletter-wrapper .newsletter .newsletter-form input + button:hover{cursor: pointer;border:1px solid #eee;opacity: 0.85;}
+
+@media (min-width: 768px) {
+  main > .section > .newsletter-wrapper .newsletter {
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  main > .section > .newsletter-wrapper .newsletter .newsletter-content {
+    width: 40%;
+  }
+
+  main > .section > .newsletter-wrapper .newsletter .newsletter-form {
+    width: 60%;position: relative;
+  }
+}

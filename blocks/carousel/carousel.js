@@ -61,13 +61,14 @@ async function renderCategories(block,jsonUrl,count) {
   });
 }
 
-async function renderProducts(block,jsonUrl,count) {
+async function renderProducts(block,jsonUrl) {
   const products = await fetchProducts(jsonUrl);
-  const visibleProducts = products.slice(0,Number(count));
-
+  console.log('Total Products:', products.length);
+  const newProducts = products.filter((product)=>product.newArrival === 'TRUE');
+  console.log(products.map(p => p.newArrival));
   block.innerHTML = '';
 
-  visibleProducts.forEach((product) => {
+  newProducts.forEach((product) => {
     const row = document.createElement('div');
 
     const imageColumn = document.createElement('div');
@@ -128,7 +129,7 @@ export default async function decorate(block) {
 
   if (block.classList.contains('product-carousel')) {
     const {jsonUrl,count} =  getBlockConfig(block);
-    await renderProducts(block,jsonUrl,count);
+    await renderProducts(block,jsonUrl);
   }
 
   // Remove empty rows created in EDS
@@ -142,7 +143,6 @@ export default async function decorate(block) {
   });
 
   const slides = [...block.children];
-console.log(slides.length);
   if (!slides.length) return;
 
   let currentIndex = 0;
