@@ -1,7 +1,8 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 
-async function fetchProducts() {
-  const response = await fetch('/data/products.json');
+async function fetchProducts(jsonUrl) {
+  //const response = await fetch('/data/products.json');
+  const response = await fetch(jsonUrl);
 
   if (!response.ok) {
     throw new Error('Unable to fetch products');
@@ -12,14 +13,14 @@ async function fetchProducts() {
   return data.data || data;
 }
 
-async function renderCategories(block) {
-  const products = await fetchProducts();
+async function renderCategories(block,jsonUrl,count) {
+  const products = await fetchProducts(jsonUrl);
 
   const categories = [
     ...new Set(
       products.map((product) => product.category),
     ),
-  ];
+  ].slice(0,count);
 
   block.innerHTML = '';
 
@@ -60,12 +61,13 @@ async function renderCategories(block) {
   });
 }
 
-async function renderProducts(block) {
-  const products = await fetchProducts();
+async function renderProducts(block,jsonUrl,count) {
+  const products = await fetchProducts(jsonUrl);
+  const visibleProducts = products.slice(0,Number(count));
 
   block.innerHTML = '';
 
-  products.forEach((product) => {
+  visibleProducts.forEach((product) => {
     const row = document.createElement('div');
 
     const imageColumn = document.createElement('div');
@@ -110,14 +112,23 @@ async function renderProducts(block) {
   });
 }
 
+function getBlockConfig(block){
+  const row=block.querySelector(':scope > div');
+  const jsonUrl = row?.children[0]?.textContent.trim();
+  const count = parseInt(row?.children[1]?.textContent.trim(),10) || 4;
+  return {jsonUrl,count}
+}
 
 export default async function decorate(block) {
+    
      if (block.classList.contains('category-carousel')) {
-    await renderCategories(block);
-  }
+        const {jsonUrl,count} =  getBlockConfig(block);
+         await renderCategories(block,jsonUrl,count);
+     }
 
   if (block.classList.contains('product-carousel')) {
-    await renderProducts(block);
+    const {jsonUrl,count} =  getBlockConfig(block);
+    await renderProducts(block,jsonUrl,count);
   }
 
   // Remove empty rows created in EDS
@@ -131,7 +142,7 @@ export default async function decorate(block) {
   });
 
   const slides = [...block.children];
-
+console.log(slides.length);
   if (!slides.length) return;
 
   let currentIndex = 0;
