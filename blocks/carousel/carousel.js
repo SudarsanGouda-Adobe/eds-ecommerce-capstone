@@ -90,7 +90,7 @@ async function renderProducts(block) {
     title.textContent = product.title;
 
     const description = document.createElement('p');
-    description.textContent = product.description || '';
+    description.textContent = product.category || '';
 
     const price = document.createElement('p');
     price.textContent = `$${product.price}`;

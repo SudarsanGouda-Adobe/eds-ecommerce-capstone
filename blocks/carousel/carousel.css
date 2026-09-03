@@ -33,7 +33,10 @@
   /* aspect-ratio: 1 / .50; */
   height: 300px;
   overflow: hidden; border-radius: 10px;border:1px solid #ccc;
+  background: #eeeeee;
+  display: flex;justify-content: center;align-items: center;
 }
+
 
 .carousel-slide picture {
   display: block;
@@ -65,12 +68,23 @@
   margin-bottom: 12px;
   font-size:var(--heading-font-size-xs);
   font-weight: 600;
+  
+}
+.carousel-slide > div:nth-child(2) h3{font-size: 18px;
+    display: -webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:1;
+  overflow: hidden;
 }
 
 /* Description */
 
 .carousel-slide > div:nth-child(2) p {
   margin: 0 0 12px;
+   display: -webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:3;
+  overflow: hidden;
 }
 
 /* Button stays at bottom */
@@ -85,13 +99,12 @@
   display: inline-block;
   padding: 10px 20px;
   border-radius: 4px;
-  background-color: #1473e6;
-  color: #fff;
-  text-decoration: none;
+  background-color:#eee;
+  text-decoration: none; height: 100%;
 }
 
 .carousel-slide a:hover {
-  background-color: #0d66d0;
+  background-color:var(--card-hover-shadow);
 }
 
 /* Previous / Next buttons */
@@ -142,8 +155,8 @@
 .carousel-dots {
   position: absolute;
   right: 0;
-  bottom: 15px;
-  left: 0;
+  bottom: 45px;
+  left: 15px;
 
   display: flex;
   align-items: left;
