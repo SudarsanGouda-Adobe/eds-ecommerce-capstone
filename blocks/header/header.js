@@ -1,5 +1,6 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
+import { updateCartCount } from '../../scripts/cart.js';
 
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 900px)');
@@ -124,6 +125,136 @@ export default async function decorate(block) {
   nav.id = 'nav';
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
+
+// Nav tools: Search, User, Cart
+const navTools = nav.children[2];
+
+if (navTools) {
+  const tools = navTools.querySelector('.default-content-wrapper');
+  const paragraphs = tools?.querySelectorAll(':scope > p');
+
+  // Search
+ // Search
+const searchIcon = paragraphs?.[0]?.querySelector('.icon-search');
+
+if (searchIcon) {
+  const searchButton = document.createElement('button');
+  searchButton.type = 'button';
+  searchButton.className = 'nav-search';
+  searchButton.setAttribute('aria-label', 'Open search');
+  searchButton.setAttribute('aria-expanded', 'false');
+  searchButton.setAttribute('aria-controls', 'header-search');
+
+  searchIcon.setAttribute('aria-hidden', 'true');
+
+  searchButton.append(searchIcon);
+  paragraphs[0].replaceChildren(searchButton);
+
+  const searchContainer = document.createElement('div');
+  searchContainer.className = 'header-search';
+  searchContainer.id = 'header-search';
+  searchContainer.hidden = true;
+
+  searchContainer.innerHTML = `
+    <form class="search-form" role="search">
+      <input
+        id="header-search-input"
+        class="search-input"
+        type="search"
+        name="search"
+        placeholder="Search products"
+        aria-label="Search products"
+        autocomplete="off"
+      >
+
+      <button
+        type="submit"
+        class="search-submit"
+        aria-label="Submit search">
+        Search
+      </button>
+    </form>
+  `;
+
+  navTools.append(searchContainer);
+
+  const searchInput = searchContainer.querySelector('.search-input');
+  const searchForm = searchContainer.querySelector('.search-form');
+
+  searchButton.addEventListener('click', () => {
+    const isOpen = !searchContainer.hidden;
+
+    searchContainer.hidden = isOpen;
+
+    searchButton.setAttribute(
+      'aria-expanded',
+      String(!isOpen),
+    );
+
+    searchButton.setAttribute(
+      'aria-label',
+      isOpen ? 'Open search' : 'Close search',
+    );
+
+    if (!isOpen) {
+      searchInput.focus();
+    }
+  });
+
+  searchForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const searchTerm = searchInput.value.trim();
+
+    if (!searchTerm) return;
+
+    // Product search logic
+    console.log('Search:', searchTerm);
+  });
+}
+
+
+  // User
+  const userIcon = paragraphs?.[1]?.querySelector('.icon-user');
+
+  if (userIcon) {
+    const userButton = document.createElement('button');
+    userButton.type = 'button';
+    userButton.className = 'nav-user';
+    userButton.setAttribute('aria-label', 'Account');
+
+    userIcon.setAttribute('aria-hidden', 'true');
+
+    userButton.append(userIcon);
+    paragraphs[1].replaceChildren(userButton);
+
+    userButton.addEventListener('click', () => {
+      // Add your account functionality here
+    });
+  }
+
+  // Cart
+  const cartIcon = paragraphs?.[2]?.querySelector('.icon-cart');
+  const cartLink = cartIcon?.closest('a');
+
+  if (cartLink) {
+    cartLink.classList.add('nav-cart');
+    cartLink.setAttribute('aria-label', 'Shopping cart, 0 items');
+
+    cartIcon.setAttribute('aria-hidden', 'true');
+
+    const cartCount = document.createElement('span');
+    cartCount.className = 'cart-count';
+    cartCount.textContent = '0';
+    cartCount.setAttribute('aria-hidden', 'true');
+
+    cartLink.append(cartCount);
+  }
+}
+//search user cart end
+
+
+
   const classes = ['brand', 'sections', 'tools'];
   classes.forEach((c, i) => {
     const section = nav.children[i];
@@ -168,4 +299,6 @@ export default async function decorate(block) {
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
   block.append(navWrapper);
+
+  updateCartCount();
 }

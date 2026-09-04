@@ -1,5 +1,6 @@
-import { createOptimizedPicture } from '../../scripts/aem.js';
 
+import { createOptimizedPicture } from '../../scripts/aem.js';
+import { addToCart } from '../../scripts/cart.js';
 export function createProductTeaser(product) {
   const teaser = document.createElement('div');
   teaser.classList.add('product-teaser');
@@ -103,8 +104,11 @@ export function createProductTeaser(product) {
     'aria-label',
     `Add ${product.title} to cart`,
   );
+  cartButton.dataset.productid = product.id;
 
-  cartButton.addEventListener('click', () => {
+  cartButton.addEventListener('click', (e) => { debugger;
+    e.preventDefault();
+    addToCart(product)
     console.log('Add To Cart:', product);
   });
 

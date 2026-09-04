@@ -22,7 +22,7 @@
         /* grid-template-columns: repeat(3, 1fr); */
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
-    .product-teaser-cart{width: 114px; min-width: 114px;}
+    .product-teaser-cart{width: 114px!important; min-width: 114px;}
 }
 
 
