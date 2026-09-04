@@ -1,0 +1,95 @@
+.product-teaser {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.product-teaser-image {
+  position: relative;height: 300px;background:var(--teaser-image-bg);
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.product-teaser-image a,
+.product-teaser-image picture,
+.product-teaser-image img {
+  display: block;
+  width: 100%;height: 100%;
+}
+
+.product-teaser-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.5rem;
+  padding-top: 1rem;
+}
+
+.product-teaser-title {
+  margin: 0;font-size: var(--teaser-title-font-size);
+}
+
+.product-teaser-title a {
+  color: inherit;
+  text-decoration: none;
+   display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-teaser-category,
+.product-teaser-price,
+.product-teaser-stock {
+  margin: 0;
+}
+.product-teaser-category{color: var(--teaser-masked-text-color);font-size: calc(var(--teaser-title-font-size) - 2px);}
+.product-teaser-price {
+  font-weight: 700;
+}
+
+.product-teaser-rating,
+.product-teaser-colors {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.product-teaser-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+}
+
+.product-teaser-cart {
+  margin-top: auto;
+  width: 100%;
+  border: none;
+  border-radius: 999px;
+  padding:var(--teaser-button-space);
+  background: var(--text-color);
+  color: var(--teaser-button-text-color);
+  cursor: pointer;font-size: calc(var(--teaser-title-font-size) - 2px);
+  line-height: 20px;
+}
+
+.product-teaser-cart:hover {
+  background:color-mix(in srgb, var(--text-color) 75%, transparent);
+}
+
+.product-teaser-wishlist {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+}
+.rating-value{font-size: calc(var(--teaser-title-font-size) - 4px);}
+.rating-count{font-size: calc(var(--teaser-title-font-size) - 4px);color: var(--teaser-review-count-text-color);}
+.divider{color: var(--teaser-rating-divider);padding:0 6px;}
+.product-teaser-stock{color: var(--teaser-stock-text-color);font-size: calc(var(--teaser-title-font-size) - 2px);}

@@ -1,0 +1,11 @@
+.best-seller-products{display: grid;grid-template-columns: repeat(1fr);gap:1.5rem;}
+
+
+@media(min-width:768px){
+    .best-seller-products{grid-template-columns: repeat(2,1fr);}
+}
+
+@media(min-width:1024px){
+    .best-seller-products{grid-template-columns: repeat(4,1fr);}
+    .product-teaser-cart{width: 114px!important; min-width: 114px;}
+}

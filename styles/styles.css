@@ -48,6 +48,20 @@
   /* promo corosal cardhoer*/
     --card-shadow:0 2px 8px rgb(0 0 0 / 8%);
     --card-hover-shadow:0 8px 20px rgb(0 0 0 / 15%);
+
+    /* product cards */
+  --teaser-image-bg:#eeeeee;
+  --teaser-title-font-size:16px;
+  --teaser-sub-title-font-size:14px;
+  --teaser-masked-text-color:#575757;
+  --teaser-text-color:#131313;
+  --tease-button-bg:#131313;
+  --teaser-button-space:8px 16px 8px 16px;
+  --teaser-button-text-color:#ffffff;
+  --teaser-rating-divider:#d1d1d1;
+  --teaser-review-count-text-color:#575757;
+  --teaser-stock-text-color:#ff3333;
+
 }
 
 /* fallback fonts */
@@ -78,6 +92,7 @@
     --heading-font-size-s: 20px;
     --heading-font-size-xs: 18px;
   }
+  
 }
 
 body {
