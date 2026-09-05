@@ -18,11 +18,11 @@ export function addToCart(product){
     let cart = getCart();
     const existingProduct = cart.find((item)=>item.id ===product.id);
     if(existingProduct){
-        existingProduct.quantity +=1;
+        existingProduct.quantity += product.quantity;
     }else{
         cart.push({
            ...product,
-           quantity:1
+           quantity:product.quantity || 1
             
         });
     }
@@ -39,4 +39,29 @@ export function removeFromCart(productID){
     // renderCart();
     // createProductTeaser()
 
+}
+
+export function increaseQuantity(productID){
+    const cart = getCart();
+    const product=cart.find((item)=>item.id == productID)
+    if(product){
+        product.quantity +=1;
+    }
+    saveCart(cart);
+    updateCartCount();
+}   
+
+export function decreaseQuantity(productID){
+    const cart = getCart();
+    const product = cart.find((item)=>item.id == productID);
+    if(product && product.quantity >1){
+        product.quantity -= 1;
+    }
+    saveCart(cart);
+    updateCartCount();
+}
+
+export function getCartSubtotal(){
+    const cart = getCart();
+    return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
 }
