@@ -8,7 +8,7 @@ function getBlockConfig(block){
   return {jsonUrl}
 }
 
-async function getProduct(jsonUrl) { debugger;
+async function getProduct(jsonUrl) { 
   const id = new URLSearchParams(window.location.search)
     .get('id');
 
