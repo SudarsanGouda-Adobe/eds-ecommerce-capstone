@@ -34,7 +34,7 @@ async function renderCategories(block,jsonUrl,count) {
     const imageColumn = document.createElement('div');
 
     const link = document.createElement('a');
-    link.href = `/pages/productlist?category=${encodeURIComponent(category)}`;
+    link.href = `/pages/category?category=${encodeURIComponent(category)}`;
     link.title = category;
 
     const picture = createOptimizedPicture(
@@ -120,7 +120,7 @@ function getBlockConfig(block){
   return {jsonUrl,count}
 }
 
-export default async function decorate(block) {
+export default async function decorate(block) { debugger;
     
      if (block.classList.contains('category-carousel')) {
         const {jsonUrl,count} =  getBlockConfig(block);

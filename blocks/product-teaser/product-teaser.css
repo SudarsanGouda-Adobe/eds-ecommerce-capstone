@@ -93,3 +93,20 @@
 .rating-count{font-size: calc(var(--teaser-title-font-size) - 4px);color: var(--teaser-review-count-text-color);}
 .divider{color: var(--teaser-rating-divider);padding:0 6px;}
 .product-teaser-stock{color: var(--teaser-stock-text-color);font-size: calc(var(--teaser-title-font-size) - 2px);}
+
+.stars {
+  position: relative;
+  display: inline-block;
+  color: #ddd;
+}
+
+.stars::before {
+  content: '★★★★★';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color:var(--text-color);
+  white-space: nowrap;
+  overflow: hidden;
+  width: calc(var(--rating) / 5 * 100%);
+}

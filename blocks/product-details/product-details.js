@@ -14,7 +14,6 @@ async function getProduct(jsonUrl) {
 
   const response = await fetch(jsonUrl);
   const products = await response.json();
-console.log(products)
   return products.data.find(
     (item) => String(item.id) === String(id),
   );

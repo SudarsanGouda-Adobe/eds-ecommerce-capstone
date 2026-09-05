@@ -22,6 +22,8 @@
   --link-color: #3b63fb;
   --link-hover-color: #1d3ecf;
   --green-btn-bg:#94ff5e;
+  --secondary-btn-border:#d1d1d1;
+  --secondary-btn-hoverbg:#131313;
 
   /* fonts */
   --body-font-family: roboto, roboto-fallback, sans-serif;

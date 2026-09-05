@@ -66,7 +66,7 @@ export function createProductTeaser(product) {
   );
 
   rating.innerHTML = `
-    <span class="stars">★★★★★</span>
+    <span class="stars" style="--rating:${product.rating}">★★★★★</span>
     <span class="rating-value">${product.rating}</span>
     <span class="rating-count">${product.reviews} <span class='divider'>|</span> Reviews</span>
   `;
