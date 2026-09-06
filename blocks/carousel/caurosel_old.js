@@ -9,7 +9,7 @@ const placeholders = {
   of: 'of',
 };
 
-async function fetchProducts() { debugger;
+async function fetchProducts() { 
   const response = await fetch('/data/products.json');
 
   if (!response.ok) {
@@ -276,7 +276,7 @@ function createSlide(row, slideIndex, carouselId) {
 
 let carouselId = 0;
 
-export default async function decorate(block) { debugger;
+export default async function decorate(block) {
   if (block.classList.contains('category-carousel')) {
     await renderCategories(block);
   }

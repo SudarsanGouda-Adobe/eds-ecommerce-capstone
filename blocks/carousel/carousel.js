@@ -63,7 +63,7 @@ async function renderCategories(block,jsonUrl,count) {
 
 async function renderProducts(block,jsonUrl) {
   const products = await fetchProducts(jsonUrl);
-  console.log('Total Products:', products.length);
+  
   const newProducts = products.filter((product)=>product.newArrival === 'TRUE');
   console.log(products.map(p => p.newArrival));
   block.innerHTML = '';
@@ -120,7 +120,7 @@ function getBlockConfig(block){
   return {jsonUrl,count}
 }
 
-export default async function decorate(block) { debugger;
+export default async function decorate(block) { 
     
      if (block.classList.contains('category-carousel')) {
         const {jsonUrl,count} =  getBlockConfig(block);

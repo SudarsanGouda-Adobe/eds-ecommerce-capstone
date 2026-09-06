@@ -141,11 +141,11 @@ export default async function decorate(block) {
     e.preventDefault();
     localStorage.removeItem('cart');
 
-    alert(
-      'Order placed successfully!',
-    );
+    // alert(
+    //   'Order placed successfully!',
+    // );
 
-    window.location.href = '/';
+    window.location.href = '/pages/order-confirmation';
   });
 
   backToCheckCart.addEventListener('click',(e)=>{

@@ -1,0 +1,30 @@
+.order-confirmation {
+  display: flex;
+  justify-content: center;
+  padding: 4rem 1rem;
+}
+
+.confirmation-card {
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  padding: 2rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+}
+
+.success-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.continue-shopping {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 12px 24px;
+  background: #8be846;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
+}

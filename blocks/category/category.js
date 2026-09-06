@@ -17,7 +17,7 @@ async function getProducts(jsonUrl){
 
     return data.data || data;
 }
-
+ 
 
 export default async function decorate(block){
     const { jsonUrl }=getBlockConfig(block);

@@ -106,7 +106,7 @@ export function createProductTeaser(product) {
   );
   cartButton.dataset.productid = product.id;
 
-  cartButton.addEventListener('click', (e) => { debugger;
+  cartButton.addEventListener('click', (e) => { 
     e.preventDefault();
     addToCart(product)
     console.log('Add To Cart:', product);
