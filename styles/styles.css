@@ -350,3 +350,56 @@ main .section.highlight {
   margin: 0;
   padding: 40px 0;
 }
+
+
+/*----button-*/
+.button-default {
+  margin-top: auto;font-weight: 600;
+  width: 100%;
+  border: none;
+  border-radius: 999px;
+  padding:var(--teaser-button-space);
+  background: var(--text-color);
+  color: var(--teaser-button-text-color);
+  cursor: pointer;font-size: calc(var(--teaser-title-font-size) - 2px);
+  line-height: 20px;
+}
+
+.button-default:hover {
+  background:color-mix(in srgb, var(--text-color) 75%, transparent);
+}
+
+.button-primary {
+  margin-top: auto;font-weight: 600;
+  width: 100%;
+  border: none;
+  border-radius: 999px;
+  padding:var(--teaser-button-space);
+  background: var(--green-btn-bg);
+  color: var(--text-color);
+  cursor: pointer;font-size: calc(var(--teaser-title-font-size) - 2px);
+  line-height: 20px;
+}
+
+.button-primary:hover {
+  background:color-mix(in srgb, var(--green-btn-bg) 75%, transparent);
+}
+.button-secondary {
+  margin-top: auto;
+  width: 100%;
+  border: none;
+  border-radius: 999px;
+  padding:var(--teaser-button-space);
+  background: var(---text-white);
+  color: var(--text-color);
+  cursor: pointer;font-size: calc(var(--teaser-title-font-size) - 2px);
+  line-height: 20px;
+  border:1px solid var(--secondary-btn-border)!important;font-weight: 600;
+}
+
+.button-secondary:hover {
+  background:color-mix(in srgb, var(--text-color) 75%, transparent);
+  color: var(---text-white);
+}
+
+.mb-10{margin-bottom: 10px!important;}

@@ -3,7 +3,8 @@
   flex-direction: column;
   height: 100%;
 }
-
+.product-teaser:hover .product-teaser-content{box-shadow: var(--card-hover-shadow);padding: 5px;border-radius: 0 0 12px 12px;}
+.product-teaser:hover .product-teaser-image{border-radius: 12px 12px 0 0px;}
 .product-teaser-image {
   position: relative;height: 300px;background:var(--teaser-image-bg);
   overflow: hidden;
