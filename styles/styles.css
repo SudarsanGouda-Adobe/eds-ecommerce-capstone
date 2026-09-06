@@ -384,6 +384,7 @@ main .section.highlight {
 .button-primary:hover {
   background:color-mix(in srgb, var(--green-btn-bg) 75%, transparent);
 }
+.button-primary:disabled{cursor: not-allowed;opacity: 0.5;}
 .button-secondary {
   margin-top: auto;
   width: 100%;

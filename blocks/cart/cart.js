@@ -91,9 +91,9 @@ function createCartItems(block) {
 
 function createOrderSummary(block){
     const subtotal=getCartSubtotal();
-    const shipping = 9;
-    const discount = 10;
-    const giftCertificate = 10;
+    const shipping = 0;
+    const discount = 0;
+    const giftCertificate = 0;
     const total = subtotal + shipping - discount - giftCertificate;
     let orderSummary=document.createElement('div');
     orderSummary.classList.add('order-summary');
@@ -120,17 +120,53 @@ function createOrderSummary(block){
         <li><strong>Total</strong></li>
         <li class="right"><strong>$${total.toFixed(2)}</strong></li>
         <li class='full'>
-        <button>Continue shopping</button>
-        <button>Proess to checkout</button>
+        <button type="button" class="continue-shopping button-secondary mb-10">Continue shopping</button>
+        <button type="button" class="checkout-btn button-primary">Proess to checkout</button>
         </li>
     </ul>
 `;
 orderSummary.append(orderSummaryDetails);
-return orderSummary
+
+const continueShoppingBtn = orderSummaryDetails.querySelector('.continue-shopping');
+continueShoppingBtn.addEventListener('click',()=>{
+  if(continueShoppingBtn){window.history.back();}  
+});
+const checkoutBtn = orderSummaryDetails.querySelector('.checkout-btn');
+  checkoutBtn.addEventListener('click',()=>{
+    if(checkoutBtn.disabled){
+      return
+    }
+    window.location.href='/pages/checkout'; 
+    });
+  return orderSummary
 }
 
 async function renderCart(block){
   block.innerHTML='';
+    let cart = getCart();
+    if(!cart.length){
+      const emptyCart = document.createElement('div');
+      emptyCart.classList.add('empty-cart');
+      emptyCart.innerHTML = `
+      <h2>Your cart is empty</h2>
+      <p>
+        Looks like you haven't added any products to your cart yet.
+      </p>
+      <button
+        type="button"
+        class="continue-shopping button-primary">
+        Continue shopping
+      </button>
+    `;
+        const orderSummary = createOrderSummary(block);
+        const checkOutBtn=orderSummary.querySelector('.checkout-btn');
+          checkOutBtn.disabled = true;
+          emptyCart.querySelector('.continue-shopping').addEventListener('click',()=>{
+              window.history.back();
+          });
+          block.append(emptyCart,orderSummary);
+          return;
+    }
     const product=createCartItems(block);
     const orderSummary=createOrderSummary(block);
      block.append(product,orderSummary);
