@@ -62,8 +62,13 @@ main .section .promo-banner-wrapper{max-width: unset;padding: 0!important;}
   font-size: 14px;
   font-weight: 600;
 }
+.promo-banner a:hover{background:color-mix(in srgb, var(--green-btn-bg) 75%, transparent);
+  color: var(--text-color);cursor: pointer;}
 
-.promo-banner .button.primary{background: var(--green-btn-bg);color: var(--text-color);}
+.promo-banner .button.primary{background: var(--green-btn-bg);color: var(--text-color);padding: 16px 24px;border-radius: 999px;}
+.promo-banner .button.primary:hover{background:color-mix(in srgb, var(--green-btn-bg) 75%, transparent);
+  color: var(--text-color);cursor: pointer;}
+
 /* Tablet & Desktop */
 @media (min-width: 768px) {
   .promo-banner {

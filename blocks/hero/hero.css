@@ -87,15 +87,18 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #94ff5e;
-  color: #fff;
+  background:var(--green-btn-bg);
+  color:var(--text-color);
   border-radius: 999px;
-  padding: 12px 24px;
+  padding: 16px 24px;
   text-decoration: none;
   font-weight: 600;
-  border: 1px solid #94ff5e;
+  border: 1px solid var(--green-btn-bg);
 }
-
+.hero.hero.slideshow .button:hover{
+  background:color-mix(in srgb, var(--green-btn-bg) 75%, transparent);
+  color: var(--text-color);
+}
 .hero-controls {
   position: absolute;
   right: 32px;
