@@ -12,9 +12,13 @@ footer .footer > div {
 footer .footer p {
   margin: 0;
 }
-
+footer ul{list-style-type: none;padding: 0;margin: 0;}
+footer ul li{width: auto;cursor: pointer;}
+footer ul li p{font-weight: bold;}
+.columns > div{align-items: left!important;}
 @media (width >= 900px) {
   footer .footer > div {
-    padding: 40px 32px 24px;
+    padding: 40px 32px 24px; align-items: left;justify-content: left;
   }
+  
 }

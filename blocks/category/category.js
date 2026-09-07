@@ -316,6 +316,7 @@ export default async function decorate(block) {
   const products = await getProducts(jsonUrl);
   const category = new URLSearchParams(window.location.search).get('category');
   const feature = new URLSearchParams(window.location.search).get('feature');
+  const searchTerm = new URLSearchParams(window.location.search,).get('search');
 
   block.innerHTML = '';
   const heading = document.querySelector('h1');
@@ -337,10 +338,26 @@ export default async function decorate(block) {
     categoryData = categoryData.filter((item)=> item[feature] === 'TRUE');
   }
   let currentProducts =[...categoryData];
+   if (searchTerm?.trim()) {
+  const query = searchTerm.trim().toLowerCase();
 
-  if (heading) {
-    heading.innerHTML = `${category || 'All Products'} <span>(${categoryData.length})</span>`;
-  }
+  categoryData = categoryData.filter((item) =>
+    item.title?.toLowerCase().includes(query)
+    || item.category?.toLowerCase().includes(query)
+    || item.description?.toLowerCase().includes(query)
+    || item.brand?.toLowerCase().includes(query)
+    || item.sku?.toLowerCase().includes(query)
+  );
+}
+
+ 
+  if (searchTerm?.trim() && heading) {
+  heading.classList.add('search-results-heading');
+  heading.innerHTML = `
+    Results for "${searchTerm}"
+    <span>(${categoryData.length})</span>
+  `;
+}
   const sidebar = createFilterSidebar(products, category, grid, heading,currentProducts)
 
   layout.append(sidebar, productContent);

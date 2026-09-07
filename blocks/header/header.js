@@ -5,25 +5,45 @@ import { updateCartCount } from '../../scripts/cart.js';
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 900px)');
 
+
+
 function setActiveNavLink(navSections) {
   const currentPath = window.location.pathname;
   const currentSearch = window.location.search;
 
   navSections.querySelectorAll('a').forEach((link) => {
-    const url = new URL(
-      link.href,
-      window.location.origin,
-    );
+    const url = new URL(link.href, window.location.origin);
 
+    // Clear existing state
+    link.classList.remove('active');
+    link.removeAttribute('aria-current');
+
+    // Home
+    if (currentPath === '/' && url.pathname === '/') {
+      link.classList.add('active');
+      link.setAttribute('aria-current', 'page');
+      return;
+    }
+
+    // Search results -> Shop All active
     if (
-      url.pathname === currentPath &&
-      url.search === currentSearch
+      currentPath === '/pages/category'
+      && currentSearch.includes('search=')
+      && url.pathname === '/pages/category'
+      && !url.search
     ) {
       link.classList.add('active');
-      link.setAttribute(
-        'aria-current',
-        'page',
-      );
+      link.setAttribute('aria-current', 'page');
+      return;
+    }
+
+    // Exact match
+    if (
+      url.pathname === currentPath
+      && url.search === currentSearch
+    ) {
+      link.classList.add('active');
+      link.setAttribute('aria-current', 'page');
     }
   });
 }
@@ -224,16 +244,16 @@ if (searchIcon) {
     }
   });
 
-  searchForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+ searchForm.addEventListener('submit', (e) => {
+  e.preventDefault();
 
-    const searchTerm = searchInput.value.trim();
+  const searchTerm = searchInput.value.trim();
 
-    if (!searchTerm) return;
+  if (!searchTerm) return;
 
-    // Product search logic
-    console.log('Search:', searchTerm);
-  });
+  window.location.href =
+    `/pages/category?search=${encodeURIComponent(searchTerm)}`;
+});
 }
 
 
