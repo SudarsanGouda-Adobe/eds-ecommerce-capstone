@@ -137,33 +137,30 @@
 }
 
 .price-range input{
-  width:100%;
+  width:calc(100% - 10px);
   padding:.75rem;
   border:1px solid #ddd;
-  border-radius:6px;
+  border-radius:6px;font-size: 12px; margin:  0 5px;
 }
 
 .apply-price{
   width:100%;
-  padding:.75rem;
-  border:none;
-  border-radius:6px;
-  background:#000;
-  color:#fff;
+  border:none;  
+  color:#fff;font-weight: normal;
   cursor:pointer;
 }
+.apply-price.button-default{}
 
 .reset-filter-btn{
   width:100%;
-  margin-top:1.5rem;
-  padding:.875rem 1rem;
+  /* margin-top:1.5rem;
+  padding:.875rem 1rem; */
   border:none;
   border-radius:999px;
-  background:#000;
-  color:#fff;
+  color:#fff; font-weight: normal;
   cursor:pointer;
 }
-
+.reset-filter-btn.button-default{}
 .reset-filter-btn:hover,
 .apply-price:hover{
   opacity:.9;

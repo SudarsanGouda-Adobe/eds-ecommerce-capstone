@@ -5,6 +5,29 @@ import { updateCartCount } from '../../scripts/cart.js';
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 900px)');
 
+function setActiveNavLink(navSections) {
+  const currentPath = window.location.pathname;
+  const currentSearch = window.location.search;
+
+  navSections.querySelectorAll('a').forEach((link) => {
+    const url = new URL(
+      link.href,
+      window.location.origin,
+    );
+
+    if (
+      url.pathname === currentPath &&
+      url.search === currentSearch
+    ) {
+      link.classList.add('active');
+      link.setAttribute(
+        'aria-current',
+        'page',
+      );
+    }
+  });
+}
+
 function closeOnEscape(e) {
   if (e.code === 'Escape') {
     const nav = document.getElementById('nav');
@@ -126,7 +149,7 @@ export default async function decorate(block) {
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
 
-// Nav tools: Search, User, Cart
+// Nav tools: Search, User, Cart  
 const navTools = nav.children[2];
 
 if (navTools) {
@@ -230,6 +253,7 @@ if (searchIcon) {
 
     userButton.addEventListener('click', () => {
       // Add your account functionality here
+      window.location.href = '/pages/account';
     });
   }
 
@@ -280,6 +304,7 @@ if (searchIcon) {
         }
       });
     });
+    setActiveNavLink(navSections);
   }
 
   // hamburger for mobile

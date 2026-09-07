@@ -31,4 +31,14 @@ export default function decorate(block) {
       </button>
     </form>
   `;
-}
+
+  const form = block.querySelector('.newsletter-form');
+
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      console.log('Newsletter submitted');
+    });
+  }
+} 

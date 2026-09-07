@@ -113,10 +113,8 @@ function createOrderSummary(block){
         <li>Tax</li>
         <li>Calculated at checkout</li>
         <li>Shipping</li>
-        <li class="right">$${shipping.toFixed(2)}</li>
-        <li class='full'>Standard to <span>3333</span>change</li>
-        <li class='full border'>Promo code</li>
-        <li class='full border'>Gift card</li>
+        <li class="right">$${shipping.toFixed(2)}</li>       
+        <li class='full border'></li>
         <li><strong>Total</strong></li>
         <li class="right"><strong>$${total.toFixed(2)}</strong></li>
         <li class='full'>

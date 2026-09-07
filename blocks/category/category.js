@@ -210,7 +210,7 @@ function createFilterSidebar(products, selectedCategory, grid, heading,currentPr
           placeholder="Max Price"
           aria-label="Maximum Price">
 
-        <button class="apply-price">
+        <button class="apply-price button-default">
           Apply
         </button>
       </div>
@@ -244,7 +244,7 @@ function createFilterSidebar(products, selectedCategory, grid, heading,currentPr
   </div>
     </details>
 
-    <button class="reset-filter-btn">
+    <button class="reset-filter-btn button-default">
       Reset Filters
     </button>
   `;
@@ -315,6 +315,7 @@ export default async function decorate(block) {
   const { jsonUrl } = getBlockConfig(block);
   const products = await getProducts(jsonUrl);
   const category = new URLSearchParams(window.location.search).get('category');
+  const feature = new URLSearchParams(window.location.search).get('feature');
 
   block.innerHTML = '';
   const heading = document.querySelector('h1');
@@ -332,6 +333,9 @@ export default async function decorate(block) {
   productContent.append(grid);
 
   let categoryData = category ? products.filter((item) => item.category === category) : products;
+  if(feature && products.length){
+    categoryData = categoryData.filter((item)=> item[feature] === 'TRUE');
+  }
   let currentProducts =[...categoryData];
 
   if (heading) {

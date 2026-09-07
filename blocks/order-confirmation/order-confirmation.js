@@ -10,9 +10,7 @@ export default async function decorate(block) {
   wrapper.innerHTML = `
     <div class="confirmation-card">
 
-      <div class="success-icon">
-        ✅
-      </div>
+      <div class="success-icon">✓</div>
 
       <h1>Thank You!</h1>
 
@@ -29,9 +27,7 @@ export default async function decorate(block) {
         3-5 business days
       </p>
 
-      /
-        Continue Shopping
-      </a>
+      <a class="continue-shopping button-primary" href="/pages/category">Continue Shopping</a>      
 
     </div>
   `;

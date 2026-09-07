@@ -1,0 +1,76 @@
+/* .account-container {
+  padding: 3rem 1rem;
+} */
+
+/* .account-container .default-content-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+} */
+
+.account-container h1 {
+  text-align: left;
+  margin-bottom: 2rem;
+  font-size: clamp(2.5rem, 2vw, 2rem);
+}
+
+.account-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.account {font-size: var(--body-font-size-xs);
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 8%);
+}
+
+.account h2 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding-bottom: .75rem;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 1.5rem;
+}
+
+.account h4 {
+  margin-top: 1.5rem;
+  margin-bottom: .5rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.account p {
+  margin-bottom: .75rem;
+  line-height: 1.7;
+  color: #444;
+}
+
+.account p:first-child {
+  font-size: 1.125rem;
+  color: #000;
+  margin-bottom: 1.5rem;
+}
+
+.account h2#orders {
+  margin-top: 2.5rem;
+}
+
+.account h2#orders + p {
+  background: #f8f8f8;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .account {
+    padding: 1.5rem;
+  }
+
+  .account-container h1 {
+    font-size: 2.25rem;
+  }
+}
