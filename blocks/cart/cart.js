@@ -134,7 +134,8 @@ const checkoutBtn = orderSummaryDetails.querySelector('.checkout-btn');
     if(checkoutBtn.disabled){
       return
     }
-    window.location.href='/pages/checkout'; 
+    // window.location.href='/pages/checkout'; 
+    window.location.href='/pages/checkout-form';
     });
   return orderSummary
 }

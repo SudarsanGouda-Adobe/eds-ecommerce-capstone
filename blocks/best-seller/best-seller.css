@@ -25,22 +25,3 @@
     .product-teaser-cart{width: 114px!important; min-width: 114px;}
 }
 
-
-/**** for pdp plp css*/
-/* .related-products {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-}
-
-@media (min-width: 768px) {
-  .related-products {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .related-products {
-    grid-template-columns: repeat(4, 1fr);
-  }
-} */

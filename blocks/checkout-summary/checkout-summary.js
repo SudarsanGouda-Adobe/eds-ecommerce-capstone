@@ -141,10 +141,6 @@ export default async function decorate(block) {
     e.preventDefault();
     localStorage.removeItem('cart');
 
-    // alert(
-    //   'Order placed successfully!',
-    // );
-
     window.location.href = '/pages/order-confirmation';
   });
 

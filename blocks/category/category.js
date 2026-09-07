@@ -363,9 +363,6 @@ export default async function decorate(block) {
   layout.append(sidebar, productContent);
 
   renderProducts(grid, categoryData,)
-  //  categoryData.forEach((product)=>{
-  //         grid.append(createProductTeaser(product),);
-  //     })
 
   block.append(layout)
 

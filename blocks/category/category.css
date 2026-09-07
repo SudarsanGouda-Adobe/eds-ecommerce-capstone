@@ -1,14 +1,4 @@
-/* .category-products{display: grid;grid-template-columns: repeat(1fr);gap:1.5rem;}
-.category-container h1{text-transform: capitalize;}
 
-@media(min-width:768px){
-    .category-products{grid-template-columns: repeat(2,1fr);}
-}
-
-@media(min-width:1024px){
-    .category-products{grid-template-columns: repeat(4,1fr);}
-    .product-teaser-cart{width: 114px!important; min-width: 114px;}
-} */
 .category-layout {
   display: grid;
   grid-template-columns: 260px 1fr;

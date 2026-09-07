@@ -1,0 +1,69 @@
+.checkout-form {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.checkout-form-card {
+  background: var(---text-white);
+  border: 1px solid var( --teaser-rating-divider);
+  border-radius: 12px;
+  padding: 24px;font-size: var(--teaser-sub-title-font-size);
+}
+
+.checkout-form-card h1 {
+  margin-bottom: 24px;
+  margin-top: 0px;
+}
+
+.checkout-form form,
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field label {
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.checkout-form input {
+  width: calc(100% - 24px);
+  height: 32px;
+  padding: 0 12px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+
+  font: inherit;
+}
+
+.checkout-form input:focus {
+  outline: none;
+  border-color: #000;
+}
+
+.checkout-form input.input-error {
+  border-color: #dc2626;
+}
+
+.error-message {
+  min-height: 8px;
+  margin-top: 4px;
+
+  font-size: 12px;
+  color: #dc2626;
+}
+
+
+
+@media (max-width: 768px) {
+  .checkout-form-card {
+    padding: 16px;
+  }
+}
